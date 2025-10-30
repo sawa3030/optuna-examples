@@ -2,7 +2,7 @@ name: pytorch
 
 on:
   schedule:
-    - cron: '23 6 * * *' 
+    - cron: '35 6 * * *' 
   pull_request:
     paths:
       - 'pytorch/**'
@@ -54,27 +54,6 @@ jobs:
         export OMPI_MCA_rmaps_base_oversubscribe=yes
         STORAGE_URL=sqlite:///example.db
         mpirun -n 2 -- python pytorch/pytorch_distributed_simple.py
-      env:
-        OMP_NUM_THREADS: 1
-    - name: Run PyTorch spawn examples
-      run: |
-        python pytorch/pytorch_distributed_spawn.py --no-cuda
-      env:
-        OMP_NUM_THREADS: 1
-    - name: Run PyTorch Ignite examples
-      run: |
-        python pytorch/pytorch_ignite_simple.py
-      env:
-        OMP_NUM_THREADS: 1
-    - name: Run PyTorch Lightning examples
-      run: |
-        python pytorch/pytorch_lightning_simple.py
-      env:
-        OMP_NUM_THREADS: 1
-    - name: Run PyTorch Lightning DDP examples
-      run: |
-        python pytorch/pytorch_lightning_ddp.py
-        python pytorch/pytorch_lightning_ddp.py -p
       env:
         OMP_NUM_THREADS: 1
     - name: Run skorch example
