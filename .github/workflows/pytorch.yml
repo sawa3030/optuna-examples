@@ -2,7 +2,7 @@ name: pytorch
 
 on:
   schedule:
-    - cron: '15 7 * * *' 
+    - cron: '30 7 * * *' 
   pull_request:
     paths:
       - 'pytorch/**'
