@@ -1,8 +1,8 @@
 name: pytorch
 
 on:
-  # schedule:
-  #   - cron: '30 7 * * *' 
+  schedule:
+    - cron: '17 8 * * *' 
   pull_request:
     paths:
       - 'pytorch/**'
@@ -60,7 +60,7 @@ jobs:
       # TODO(c-bata): Uncomment the following lines after fixing the examples.
       # See https://github.com/optuna/optuna-examples/issues/336 for details.
       # schedule:
-      if: ${{ github.event_name != 'schedule' }}
+      if: github.event_name != 'schedule'
       run: |
         python pytorch/skorch_simple.py
       env:
