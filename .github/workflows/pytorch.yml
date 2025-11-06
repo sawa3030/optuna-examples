@@ -1,8 +1,8 @@
 name: pytorch
 
 on:
-  schedule:
-    - cron: '45 8 * * *' 
+  # schedule:
+  #   - cron: '45 8 * * *' 
   pull_request:
     paths:
       - 'pytorch/**'
